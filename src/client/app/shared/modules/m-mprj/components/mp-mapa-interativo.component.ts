@@ -38,6 +38,13 @@ import { Observable } from 'rxjs/Observable';
 import { Config, RouterExtensions, LogService, ConsoleService, ILang } from '../../../../modules/core/index';
 import { Input } from '@angular/core';
 
+// services
+import { RankingsService } from '../services/rankings.service';
+import { IRankings }       from '../services/IRankings';
+
+// module libs
+import { GradacoesDeCores } from '../../m-edificando-o-controle-interno/GradacoesDeCores';
+
 @Component({
   moduleId: module.id,
   selector: 'mp-mapa-interativo',
@@ -60,8 +67,23 @@ export class MPMapaInterativoComponent {
 
   //constructor(private geoService: WorldMapService) {}
   //municipios = this.geoService.getCountries();
-  constructor(public routerext: RouterExtensions,
-              private console: ConsoleService) {}
+
+  public errorMessage: string = null;
+  public cidades: string[] = [];
+  public notas:   number[] = [];
+
+  constructor(private rankingsService: RankingsService,
+              private gradacoes: GradacoesDeCores,
+              public routerext: RouterExtensions,
+              private console: ConsoleService) {
+    rankingsService.fetchRankings().subscribe(response => {
+      let rankings: IRankings[] = response.sort( (e1, e2) => e2.geral - e1.geral);
+      for (let i = 0; i < this.municipios.length; i++) {
+        this.cidades[i] = rankings[i].municipio;
+        this.notas[i]   = rankings[i].geral;
+      }
+    }, error => this.errorMessage = < any > error);
+  };
 
   ngOnChanges() {
 
@@ -118,6 +140,15 @@ export class MPMapaInterativoComponent {
   singleSelect(nomeElemento: string):void {
     this.elementoClicado = nomeElemento;
     this.routerext.navigate([this.selectedRedirection.replace('#{nomeElemento}', nomeElemento)]);
+  }
+
+  findNota(municipio : string): number {
+    for(let i = 0; i < this.notas.length; i++){
+      if(municipio === this.cidades[i]){
+        return this.notas[i];
+      }
+    }
+    return null;
   }
 
   municipios: any[] = [

@@ -43,7 +43,7 @@
         [attr.data-index]="i"
         (mouseover)="elementoHover = municipio.nome"
         (click)="clicked(i)"
-        class="municipios"
+        [ngClass]="gradacoes.getAnimacaoCSSClass(findNota(municipio.nome))"
         [class.selected]="estaSelecionado(i)"
         [attr.d]="municipio.path"
         fill="currentColor">
