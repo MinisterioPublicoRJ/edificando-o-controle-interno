@@ -42,7 +42,7 @@
         *ngFor="let municipio of municipios; let i = index"
         [attr.data-index]="i"
         (mouseover)="elementoHover = municipio.nome"
-        (click)="clicked(i)"
+        [routerLink]="['/ranking-completo/'+municipio.nome+'/geral']"
         [ngClass]="gradacoes.getAnimacaoCSSClass(findNota(municipio.nome))"
         [class.selected]="estaSelecionado(i)"
         [attr.d]="municipio.path"

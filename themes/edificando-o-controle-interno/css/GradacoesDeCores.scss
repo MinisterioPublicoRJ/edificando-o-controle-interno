@@ -15,7 +15,7 @@
 .notaConstrucaoIniciada {
   color:#ff9933;
   stroke:#1e2a37;
-  stroke-width:528
+  stroke-width:528;
 }
 
 .notaConstrucaoAdiantada {
@@ -34,6 +34,30 @@
   color:#53A93F;
   stroke:#1e2a37;
   stroke-width:528
+}
+
+.notaEmProjeto:hover{
+  color: #0680b2;
+}
+
+.notaEmAlicerce:hover{
+  color: #0680b2;
+}
+
+.notaConstrucaoIniciada:hover{
+  color: #0680b2;
+}
+
+.notaConstrucaoAdiantada:hover{
+  color: #0680b2;
+}
+
+.notaEmAcabamento:hover{
+  color: #0680b2;
+}
+
+.notaConstruido:hover{
+  color: #0680b2;
 }
 
 .anim1 {
