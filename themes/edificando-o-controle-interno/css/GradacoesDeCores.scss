@@ -2,26 +2,62 @@
 
 .notaEmProjeto {
   color:#cc0066;
+  stroke:#1e2a37;
+  stroke-width:528;
 }
 
 .notaEmAlicerce {
   color: #ff99cc;
+  stroke:#1e2a37;
+  stroke-width:528;
 }
 
 .notaConstrucaoIniciada {
   color:#ff9933;
+  stroke:#1e2a37;
+  stroke-width:528;
 }
 
 .notaConstrucaoAdiantada {
   color:#6666ff;
+  stroke:#1e2a37;
+  stroke-width:528
 }
 
 .notaEmAcabamento {
   color:#0000cc;
+  stroke:#1e2a37;
+  stroke-width:528
 }
 
 .notaConstruido {
   color:#53A93F;
+  stroke:#1e2a37;
+  stroke-width:528
+}
+
+.notaEmProjeto:hover{
+  color: #0680b2;
+}
+
+.notaEmAlicerce:hover{
+  color: #0680b2;
+}
+
+.notaConstrucaoIniciada:hover{
+  color: #0680b2;
+}
+
+.notaConstrucaoAdiantada:hover{
+  color: #0680b2;
+}
+
+.notaEmAcabamento:hover{
+  color: #0680b2;
+}
+
+.notaConstruido:hover{
+  color: #0680b2;
 }
 
 .anim1 {
